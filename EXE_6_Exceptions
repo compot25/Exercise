@@ -1,0 +1,49 @@
+package Main;
+
+/*
+*Autor Robert Jureczko
+*24.04.2019
+*
+*Program wyświetla pierwiastek liczby. Obsługuje dwa wyjatki:
+*1. Gdy użytkownik poda liczbę ujemną - rzuca wyjątek IllegalArgumentException
+*2. Gdy użytkownik poda zanki zamiast liczb - program informuje użytkownka oraz prosi o ponowne podanie liczby
+*/
+
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Sqrt {
+	
+	private double number;
+	static int how_many_times=0;
+	public Scanner scan = new Scanner(System.in);
+	
+	public void sqrt_number(double number)
+	{
+		if(how_many_times==0)
+		System.out.println(Math.sqrt(this.number));
+		else how_many_times--;
+	}
+	
+	public void get_number() throws IllegalArgumentException, IOException
+	{
+		System.out.println("Podaj liczbę do spierwiastkowania");
+		try {
+		number=scan.nextDouble();
+		}
+		catch (InputMismatchException  e)
+		{
+			System.out.println("Niedozwolone znaki - podaj nowe znaki\n");
+			scan.next();
+			how_many_times++;
+			get_number();
+		}
+		if(number<0)
+		{
+			throw new IllegalArgumentException("Niedozwolona liczba - liczba ujemna");
+		}
+		sqrt_number(number);
+	}
+
+}
