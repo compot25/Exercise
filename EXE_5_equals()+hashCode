@@ -1,0 +1,42 @@
+package Main;
+
+/*Autor Robert Jureczko
+ * Exercise HashCode and Equals
+ * 24.04.2019r.
+ * Stworzenie clasy Osoba która posiada meteody equals() oraz hashCode()
+ * Stworzenie dwoch instancji clasy Osoba i sprawdzenie czy te dwie instancje reprezentuja ta sama osobe
+ */
+
+
+public class Osoba {
+	
+	 String name;
+	 String surname;
+	 int pesel;
+	
+	public Osoba(String name, String surname, int pesel)
+	{
+		this.name = name;
+		this.surname = surname;
+		this.pesel = pesel;
+	}
+
+	
+
+	@Override
+	public int hashCode() {
+		return (7 * pesel);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (obj instanceof Osoba)
+		{
+			Osoba otherOsoba = (Osoba) obj;
+			return pesel==otherOsoba.pesel;
+		}
+		return false;
+	}	
+}
