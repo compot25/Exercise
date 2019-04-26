@@ -1,1 +1,12 @@
+package Enum;
 
+public enum Color_hair {
+	
+	DARK,
+	WHITE,
+	BLUE,
+	BLOND,
+	RED,
+	GREEN
+
+}
