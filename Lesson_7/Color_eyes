@@ -1,0 +1,10 @@
+package Enum;
+
+public enum Color_eyes {
+	
+	BROWN,
+	BLUE,
+	DARK,
+	BEER
+
+}
