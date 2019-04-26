@@ -1,0 +1,22 @@
+package Enum;
+
+import java.util.List;
+import java.util.Arrays;
+
+public class Main {
+	
+	public static void main(String[] args)
+	{
+		List<Human> czlowiek =  Arrays.asList(
+				new Human("Robert", "Kowo", 22, Color_eyes.BEER, Color_hair.DARK),
+				new Human("Tomek", "Bowo", 62, Color_eyes.BROWN, Color_hair.RED),
+				new Human("Ania", "Pawo", 20, Color_eyes.BEER, Color_hair.GREEN),
+				new Human("Hanka", "Llolo", 32, Color_eyes.BLUE, Color_hair.DARK)
+				);
+		
+		System.out.print(czlowiek.toString());
+
+	System.out.println(Computation.ADD.perform(1, -5));
+	}
+
+}
