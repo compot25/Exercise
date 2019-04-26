@@ -1,1 +1,28 @@
+package Enum;
 
+public class Human {
+	
+	private String name;
+	private String surname;
+	private int age;
+	private Color_eyes color_eyes;
+	private Color_hair color_hair;
+	
+	Human(String name, String surname, int age, Color_eyes color_eyes, Color_hair color_hair )
+	{
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		this.color_eyes = color_eyes;
+		this.color_hair = color_hair;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Imie " + name + "|| Nazwisko " + surname + "|| Wiek " + age + "|| Kolor oczu " + color_eyes + "|| Kolor włosów " + color_hair +"\n\n";
+	}
+	
+	
+
+}
