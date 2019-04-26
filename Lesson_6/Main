@@ -1,0 +1,41 @@
+package Main;
+
+import java.util.List;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Main {
+	
+	public static void main(String[] args) throws ArithmeticException, IllegalArgumentException, IOException
+	{
+
+     int tab[] = {1,2,3,4,5};
+		 Scanner odczyt = new Scanner(System.in);
+		 int index = -1;
+
+		 System.out.println("Podaj indeks tablicy, który chcesz zobaczyć: ");
+		 index = odczyt.nextInt();
+
+		 try { System.out.println(tab[index]);
+		 }
+		 catch(Exception w)
+		 {
+			 System.out.println("Nie poprawny znak");
+			 System.out.println(w.initCause(null));
+			 
+		 }
+		 
+				int x=10;
+				int y;
+				System.out.print("Podaj dzielnik: ");
+				y = odczyt.nextInt();
+				if(y==0)
+					throw new ArithmeticException("Nie mozna dzielić przez 0");
+				else
+					System.out.println(x/(double)y);
+		
+		Sqrt newSqrt = new Sqrt();
+		newSqrt.get_number();
+    }
+ }
