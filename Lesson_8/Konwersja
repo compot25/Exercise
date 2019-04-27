@@ -1,0 +1,56 @@
+package Enum;
+
+/* Autor Robert Jureczko
+ * 
+ * Prog 1 - pobiera ud użytkownika liczbę całkowitą i wyświetla liczbę pomnożoną prze Pi w postaci liczby całkowitej oraz zmiennno przecinkowej
+ * Prog 2 - pobiera od użytkwonika dwie liczby całkowite, wyświetla wynik ich dzielenia wraz z częścią ułamkową
+ * Prog 3 - pprogram generuje błąd podczas boxingu oraz unboxingu
+ * Prog 4 - Program przerabia int na char
+ */
+import java.util.Scanner;
+
+public class Typ_wyliczeniowy {
+	Scanner scan = new Scanner(System.in);
+	
+	public void Pi()
+	{
+		System.out.print("Podaj liczbe która będzie pomnożona przez PI -- > ");
+		int a = scan.nextInt();
+		System.out.println("Wynik mnożenia dla zbioru liczb całkowitych  = " + a*Math.PI);
+		a = (int) (a*Math.PI);
+		System.out.println("Wynik mnożenia dla zbioru liczb zmienoprzcinkowych  = " + a);
+	}
+	
+	public void two_number()
+	{
+		System.out.print("Podaj 1 liczbe -- > ");
+		int a = scan.nextInt();
+		System.out.print("\nPodaj 2 liczbe -- > ");
+		int b = scan.nextInt();
+		System.out.print("\nWynik dzielenia wynosi -- > " + (double)a/b);
+	}
+	
+	public void exception_unboxing()
+	{
+		int primitiveInt = Integer.valueOf(null);
+		float a= 123L;
+	}
+	
+	public void int_for_char()
+	{
+		int c=0;
+		System.out.print("Masz do wybru nastepujące znaki : ");
+		for(int i=1; i<127;i++)
+		{
+			System.out.println( i  + " ---> " + (char) i);
+		}
+		do
+		{
+			System.out.print("\nPodaj liczbe z zakresu 1-126 -- > ");
+			c=scan.nextInt();			
+		}while(!(c>0 && c<126));
+		
+		System.out.println((char) c);
+	}
+
+}
