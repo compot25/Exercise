@@ -1,0 +1,25 @@
+package Main;
+
+public class Bank extends BankAcount implements BankTransfer{
+	
+	public Bank(int amount)
+	{
+		super(amount);
+	}
+
+	@Override
+	public void transfer(BankAcount from, BankAcount to, int amount) {
+		
+		if(from.getAmount() > amount+Finnal_cost_transfer)
+		{
+			from.withdraw(amount);
+			to.deposit(amount);
+		}
+		else
+		{
+			if(amount <0) throw new IllegalArgumentException("you don't have money than you want");
+		}
+		
+	}
+	
+}
