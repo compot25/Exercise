@@ -1,0 +1,33 @@
+package Main;
+
+public class Main {
+	
+	/*Autor Robert Jureczko
+	 * 
+	 * Zasymuluj działanie banku - zaimplementuj następujące interfejsy:
+	 * public interface Account {
+     * void deposit(int amount);
+     * void withdraw(int amount);
+	 * }
+	 *
+	 * public interface BankTransfer {
+     * void transfer(BankAccount from, BankAccount to, int amount);
+     * }
+	 * Dodatkowo od wyplacania oraz przesylu pieniedzy dolicz oplate w wysokości 1 zl
+	 */
+	
+	public static void main(String[] args)
+	{
+  Bank konto1 = new Bank(100);
+		Bank konto2 = new Bank(200);
+		
+		konto2.deposit(222);
+		System.out.println(konto2.getAmount());
+		konto1.transfer(konto1, konto2, 75);
+		
+		System.out.println(konto1.getAmount());
+		System.out.println(konto2.getAmount());
+		
+	}
+
+}
