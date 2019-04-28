@@ -1,0 +1,30 @@
+package Main;
+
+public class BankAcount implements Account{
+
+	private int amount;
+	
+	protected int Finnal_cost_transfer =1;
+	
+	BankAcount(int amount)
+	{
+		this.amount = amount;
+	}
+	
+	@Override
+	public void deposit(int amount) {
+		this.amount = this.amount + amount;
+	}
+
+	@Override
+	public void withdraw(int amount) {
+		if(amount <0) throw new IllegalArgumentException("amount must be >0");
+		if(this.amount > amount+Finnal_cost_transfer)
+		this.amount = this.amount - amount -Finnal_cost_transfer;
+		else throw new IllegalArgumentException("you have less money than you want");
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+}
