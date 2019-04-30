@@ -1,0 +1,77 @@
+package Main;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.Map;
+import java.util.Scanner;
+
+/*Autor Robert Jureczko
+ * 
+ * Zad 1 - pobieraj od użytkownika imiona dopóki nie poda "-", następnie wypisz imiona które są uniklane - nie powtórzyły się
+ * 
+ * Zad 2- pobieraj od użytkownika dwa imiona dopóki nie poda "-", następnie wyświetl imię według podanego przez użytkownika klucza
+ * 
+ */
+public class Main {
+
+	public static final String final_variable = "-";
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		//-------------zad 1 ----------------------
+		List<String> lista1 = new LinkedList<String>();
+		
+		String a="k";
+		
+		while(!(final_variable.equals(a)))
+		{
+			System.out.print("\nPodaj  kolejny element do listy --> ");
+			a=scan.nextLine();
+			lista1.add(a);
+		}
+		
+		int index =0;
+		for(String list : lista1)
+		{
+			index=0;
+			for(String list1 : lista1)
+			{
+				if(list.equals(list1)) index++;
+			}
+			
+			if(index==1)
+				System.out.println(list);
+		}
+		
+		
+		//-------------zad 2 ----------------------
+		Map<String, String> Simple_Map = new HashMap<>();
+		
+		String a="a";
+		String b="b";
+		
+		Simple_Map.put("Marek", "Magda");
+		Simple_Map.put("Marcin", "Adela");
+		
+		while(!(final_variable.equals(a) || final_variable.equals(b)))
+		{
+			System.out.print("\nPodaj pierwsze imie do Mapy --> ");
+			a=scan.nextLine();
+
+			System.out.print("\nPodaj drugie imie do Mapy --> ");
+			b=scan.nextLine();
+			
+			Simple_Map.put(a,b);
+			
+		}
+		
+		System.out.println("Kt elemnt chcesz wyswietlic - podaj nazwe");
+		String index = scan.nextLine();
+		System.out.println(Simple_Map.get(index));
+	}
+
+}
