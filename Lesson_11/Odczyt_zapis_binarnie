@@ -1,0 +1,67 @@
+package Main;
+
+/*Autor Robert Jureczk
+ * Program pobiera date urodzenia od użytkownika
+ * następnie zapisuje ja w pliku.txt binarnie.
+ * Nastepnie pobiera date urodzenia i wyświetla ją w konsoli
+ * 
+ */
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Scanner;
+import java.io.IOException;
+
+public class Pliki_binarne {
+	
+	public final static String FIANLL_VARIABLE = "-";
+	Scanner scan = new Scanner(System.in);
+	public void wywołaj() throws IOException
+	{
+		System.out.print("Podaj ścieżke do pliku -->");
+		String filePath = scan.nextLine();
+		DataOutputStream outputStream = null;
+		DataInputStream inputStream = null;
+		int index=0;
+		int a;
+		
+		
+		//C:\Users\robtj\Desktop\java\Pliki\plik.txt
+		//zapisywanie danych
+		try {
+		    outputStream = new DataOutputStream(new FileOutputStream(filePath));
+		    System.out.print("Podaj dzien urodzenia --> ");
+		    index+=(scan.nextInt());
+		    System.out.print("\nPodaj miesiac urodzenia --> ");
+		    index= index*100+(scan.nextInt());
+		    System.out.print("Podaj rok urodzenia --> ");
+		    index=index*10000+(scan.nextInt());
+		    outputStream.writeInt(index);
+		} finally {
+		    if (outputStream != null) {
+		        outputStream.close();
+		    }
+		}
+		
+		//pobieranie dnaych z pliku.txt
+		try {
+			
+		    inputStream = new DataInputStream(new FileInputStream(filePath));
+		    
+		    	a= inputStream.readInt();
+		    
+		} finally {
+		  if (inputStream != null) {
+		      inputStream.close();
+		  }
+		}
+		System.out.println("Data urodzenia " + a);
+	}
+
+}
