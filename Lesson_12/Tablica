@@ -1,0 +1,42 @@
+package Main;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Klasy_anonimowe {
+	
+	public List<String> lis = new LinkedList<String>();
+	
+	public Klasy_anonimowe() {
+		get_words();
+		System.out.println("Tablica przed sortowaniem");
+		System.out.println(lis);
+		sort();
+    System.out.println("Tablica po sortowaniu");
+		System.out.println(lis);
+	}
+	
+	public void get_words()
+	{
+		Scanner scan = new Scanner(System.in);
+        for(int i= 0; i<5;i++)
+        {
+        	System.out.print("\nPodaj wyraz --> ");
+        	lis.add(scan.nextLine());
+        }
+	}
+	
+	public void sort() {
+		Collections.sort(lis, new Comparator<String>(){
+
+			@Override
+			public int compare(String o1, String o2) {
+				// TODO Auto-generated method stub
+				return o1.length() - o2.length();
+			}
+		});
+	}
+}
